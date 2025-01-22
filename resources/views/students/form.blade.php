@@ -36,7 +36,7 @@
 <x-task-input-error :messages="$errors->get('lessons_in_week')" class="mt-2"/>
 
 {{ html()->label(__('Длительность урока'), 'lesson_length')->class('block text-gray-500') }}
-{{ html()->select('lesson_length', ['40' => 40, '60' => 60, '90' => 90])->class('shadow-sm block mb-3 required: w-1/2') }}
+{{ html()->select('lesson_length', ['40 мин' => '40 мин', '60 мин' => '60 мин', '90 мин' => '90 мин'])->class('shadow-sm block mb-3 required: w-1/2') }}
 <x-task-input-error :messages="$errors->get('lesson_length')" class="mt-2"/>
 
 {{ html()->label(__('Предмет'), 'lesson')->class('block text-gray-500') }}

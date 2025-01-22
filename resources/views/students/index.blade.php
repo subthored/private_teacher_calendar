@@ -15,10 +15,10 @@
 
         {{-- @auth --}}
             <x-table.table class="text-gray-500"
-                :headers="[__('ФИО'), __('Номер телефона'), __('Начальный уровень'), __('Предмет'), __('Аренда инструмента')]"
+                :headers="[__('ФИО'), __('Уровень знаний'),  __('Предмет'), __('Уроков в неделю'), __('Длительность урока'), __('Номер телефона'),  __('Аренда инструмента')]"
                 :items="$students"
-                :routes="['update'=> 'students.edit', 'delete' => 'students.destroy']"
-                :fields="['credentials', 'phone_number', 'stud_length', 'lesson', 'instrument_rent']">
+                :routes="['update' => 'students.edit', 'delete' => 'students.destroy']"
+                :fields="['credentials', 'stud_length', 'lesson', 'lessons_in_week', 'lesson_length', 'phone_number', 'instrument_rent']">
             </x-table.table>
         {{-- @endauth --}}
         {{-- @guest --}}

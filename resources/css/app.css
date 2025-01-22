@@ -73,3 +73,7 @@ div.alert {
     background: rgb(12, 68, 0);
     color: #fff;
 }
+
+.colwidth {
+    column-width: auto;
+}

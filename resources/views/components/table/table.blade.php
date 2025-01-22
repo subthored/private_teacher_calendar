@@ -12,13 +12,10 @@
     </thead>
     <tbody class="bg-white divide-y divide-gray-200">
     @foreach($items as $item)
-        <tr class="border-b border-dashed text-left">
+        <tr class="border-b border-solid border-gray-500 text-left odd:bg-gray-200 hover:bg-red-100">
             @foreach($fields as $value)
-                <td>
+                <td class="border-s border-gray-500">
                     @switch($value)
-                        {{-- @case('created_at')
-                            {{$item->$value->format('d.m.Y')}}
-                            @break --}}
                         @case('action')
                             @foreach($routes as $key=>$route)
                                 <x-table.action-link :item="$item" :route="$route" :name="$key"/>
@@ -40,20 +37,6 @@
                 </td>
             @endforeach
         </tr>
-{{--                <td>--}}
-{{--                    <a href="{{ route('task_statuses.destroy', $status) }}"--}}
-{{--                       class="text-red-600 mr-4"--}}
-{{--                       data-confirm="Вы уверены?"--}}
-{{--                       data-method="delete"--}}
-{{--                       rel="nofollow">{{ __('Delete') }}--}}
-{{--                    </a>--}}
-{{--                    <a href="{{ route('task_statuses.edit', $status) }}"--}}
-{{--                       class="text-blue-600"--}}
-{{--                       data-method="get"--}}
-{{--                       rel="nofollow">{{ __('Change') }}--}}
-{{--                    </a>--}}
-{{--                </td>--}}
-{{--        @endauth--}}
     @endforeach
     </tbody>
 </table>

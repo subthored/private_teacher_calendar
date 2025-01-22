@@ -35,24 +35,35 @@ class StudentController extends Controller
         return redirect()->route('students.index');
     }
 
-    public function show()
+    public function show(Student $student)
     {
-        
+        $student = Student::findOrFail($student->id);
+        return view('students.show', compact('student'));
     }
 
-    public function edit()
+    public function edit(Student $student)
     {
-        
+        return view('students.edit', [
+            'student' => Student::findOrFail($student->id)
+        ]);
     }
 
-    public function update()
+    public function update(StudentRequest $request, Student $student)
     {
-        
+        $this->saveStudent($student, $request);
+        flash(__('Студент успешно обновлён'))->success();
+        return redirect()->route('students.index');
     }
 
-    public function destroy()
+    public function destroy(Student $student)
     {
-        
+        try {
+            $student->delete();
+            flash(__('Студент успешно удалён'))->success();
+        } catch (\Exception $e) {
+            flash(__('Не удалось удалить студента'))->error();
+        }
+        return redirect()->route('tasks.index');
     }
 
     public function saveStudent(Student $student, StudentRequest $request)
